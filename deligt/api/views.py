@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .serializers import FoodSerializer , DrinksSerializer , DessertSerializer
-from .models import dessert , drinks , food
+from .serializers import FoodSerializer , DrinksSerializer , DessertSerializer, ChefSerializer, AppetizerSerializer, SteakSerializer
+from .models import dessert , drinks , food ,chef , appetizer , steak
 
 # Create your views here.
 
@@ -62,5 +62,24 @@ def getDrinks(request):
 def getFood(request):
     foods = food.objects.all().order_by('price')
     serializer = FoodSerializer(foods, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getChef(request):
+    desserts = chef.objects.all().order_by('price')
+    serializer = ChefSerializer(desserts, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getAppetizer(request):
+    drinkitems = appetizer.objects.all().order_by('price')
+    serializer = AppetizerSerializer(drinkitems, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getSteak(request):
+    foods = steak.objects.all().order_by('price')
+    serializer = SteakSerializer(foods, many=True)
     return Response(serializer.data)
 

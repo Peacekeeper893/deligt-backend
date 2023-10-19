@@ -27,3 +27,27 @@ class dessert( models.Model ):
         return self.name[0:50]
 
 
+
+class chef( models.Model ):
+    name = models.CharField(max_length=50)
+    description = models.TextField(max_length=200)
+    price = models.FloatField(null=True, blank=True)
+    def __str__(self):
+        return self.name[0:50]
+
+
+class appetizer( models.Model ):
+    name = models.CharField(max_length=50)
+    description = models.TextField(max_length=200)
+    price = models.FloatField(null=True, blank=True)
+    def __str__(self):
+        return self.name[0:50]
+
+class steak( models.Model ):
+    name = models.CharField(max_length=50)
+    description = models.TextField(max_length=200)
+    price = models.FloatField(null=True, blank=True)
+    def __str__(self):
+        return self.name[0:50]
+
+

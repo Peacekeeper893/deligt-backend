@@ -22,4 +22,9 @@ urlpatterns = [
     path('dessert/', views.getDessert , name = "dessert"),
     path('drinks/', views.getDrinks , name = "drinks"),
     path('food/', views.getFood , name = "food"),
+
+    path('chefs/', views.getChef , name = "chefs"),
+    path('appetizers/', views.getAppetizer , name = "appetizers"),
+    path('steaks/', views.getSteak , name = "steaks"),
+
 ]
